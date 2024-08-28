@@ -16,6 +16,9 @@ LIB_NAME := libvvector-$(MAJOR_VERSION).$(MINOR_VERSION).$(PATCH_VERSION).so
 .PHONY: build install demo uninstall clean
 
 build: $(SRC_DIR)/vvector.c
+	mkdir -p bin
+	mkdir -p obj
+	mkdir -p sobj
 	echo "Compiling $(LIB_NAME)"
 	$(CC) $(CFLAGS) -c -shared -fPIC -o $(SOBJ_DIR)/$(LIB_NAME) $(SRC_DIR)/vvector.c
 	echo "Done. Output is in $(SOBJ_DIR)/$(LIB_NAME)"
@@ -28,15 +31,21 @@ install: $(SOBJ_DIR)/$(LIB_NAME) $(SRC_DIR)/vvector.h
 	echo "Done"
 
 demo: $(SRC_DIR)/vvector.c $(SRC_DIR)/demo.c
+	mkdir -p bin
+	mkdir -p obj
+	mkdir -p sobj
 	$(CC) $(CFLAGS) -g -c -o $(OBJ_DIR)/vvector.o $(SRC_DIR)/vvector.c
 	$(CC) $(CFLAGS) -g -c -o $(OBJ_DIR)/demo.o $(SRC_DIR)/demo.c
 	$(CC) $(CFLAGS) -g -o $(BIN_DIR)/demo $(OBJ_DIR)/demo.o $(OBJ_DIR)/vvector.o
-	echo "Done. Run demo is at: ./$(BIN_DIR)/demo"
+	echo "Done. demo is at: ./$(BIN_DIR)/demo"
 
 clean:
 	rm -f $(SOBJ_DIR)/*
 	rm -f $(BIN_DIR)/*
 	rm -f $(OBJ_DIR)/*
+	rmdir bin
+	rmdir obj
+	rmdir sobj
 
 uninstall:
 	sudo rm -f /usr/local/lib/libvvector-*
