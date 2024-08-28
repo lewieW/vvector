@@ -111,6 +111,8 @@ int main(){
     // For this, we need a return pointer of appropriate type.
     float * ret = 0;
 
+    // !!! vvector does not use the subscript operator "[]" for accessing values! Use the vvectorGet* family of functions instead.
+    
     // Get the front value
     ret = vvectorGetFront(my_float_vector);
     if (!ret) exit (1);
