@@ -19,7 +19,7 @@ You should now be able to write ```#include <vvector.h>``` in your C files and u
 
 Alternatively, compile this library into a .o file and use it as you please! See the ```make demo``` command.
 
-## Create the demo
+## Compile the demo
 Enter the downloaded vvector directory and execute 
 ```make demo```
 
