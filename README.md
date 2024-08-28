@@ -2,7 +2,7 @@
 A simple vector library for C99, targeting Linux.
 
 ## Disclaimer
-This library was writen for fun and as a learning exercise.
+This library was written for fun and as a learning exercise.
 I advise against using this in any critical codebases.
 Do not trust code written by people you do not know.
 
